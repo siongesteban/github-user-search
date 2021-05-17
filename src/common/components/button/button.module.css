@@ -30,3 +30,10 @@
 .lg {
   height: var(--input-height-lg);
 }
+
+.disabled,
+.disabled:hover {
+  background: #424242;
+  color: #7f7f7f;
+  cursor: default;
+}
