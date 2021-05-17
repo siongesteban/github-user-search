@@ -11,18 +11,44 @@ export type SelectFieldProps = {
   name: string;
   options: SelectFieldOption[];
   size?: ComponentSize;
+  title?: string;
+  value?: string | number;
+  onChange?: (name: string, value: string) => void;
 };
 
 export const SelectField: React.FC<SelectFieldProps> = ({
   name,
   options,
+  title,
   size = 'md',
-}) => (
-  <select className={`input ${size}`} name={name}>
-    {options.map(({ value, text }) => (
-      <option key={value} value={value}>
-        {text}
-      </option>
-    ))}
-  </select>
-);
+  value,
+  onChange,
+}) => {
+  const [currentValue, setCurrentValue] = React.useState(value);
+
+  React.useEffect(() => {
+    setCurrentValue(value);
+  }, [value]);
+
+  const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
+    const newValue = event.target.value;
+    setCurrentValue(newValue);
+    onChange?.(name, newValue);
+  };
+
+  return (
+    <select
+      className={`input ${size}`}
+      name={name}
+      title={title}
+      value={currentValue}
+      onChange={handleChange}
+    >
+      {options.map(({ value, text }) => (
+        <option key={value} value={value}>
+          {text}
+        </option>
+      ))}
+    </select>
+  );
+};
