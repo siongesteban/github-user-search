@@ -9,5 +9,5 @@ export default {
 
 const Template: Story = () => <Logo />;
 
-export const Basic = Template.bind({});
-Basic.args = {};
+export const Default = Template.bind({});
+Default.args = {};

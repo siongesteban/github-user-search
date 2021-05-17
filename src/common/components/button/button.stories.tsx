@@ -22,7 +22,7 @@ const defaultArgs: ButtonProps = {
   size: 'md',
 };
 
-export const Basic = Template.bind({});
-Basic.args = {
+export const Default = Template.bind({});
+Default.args = {
   ...defaultArgs,
 };
