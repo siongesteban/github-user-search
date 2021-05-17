@@ -4,14 +4,9 @@
   cursor: default;
 }
 
-.table td {
-  transition: background 0.2s ease;
-}
-
 .table th,
 .table td {
   padding: 10px 20px;
-  text-align: left;
 }
 
 .table td {
@@ -25,4 +20,16 @@
 
 .table td:last-child {
   border-radius: 0px var(--border-radius-sm) var(--border-radius-sm) 0;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
 }
