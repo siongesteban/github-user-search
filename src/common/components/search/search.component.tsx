@@ -20,30 +20,38 @@ export const Search: React.FC<SearchProps> = ({
 }) => {
   const [searchValue, setSearchValue] = React.useState('');
 
-  const handleSearchValueChange = (_: string, value: string) => {
+  const handleChange = (_: string, value: string) => {
     setSearchValue(value);
   };
 
-  const handleSearchClick = () => {
+  const handleSearch = () => {
     onSearch(searchValue);
   };
 
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+
+    handleSearch();
+  };
+
   return (
-    <div className={styles.wrapper}>
-      <div>
-        <TextField
-          name={name}
-          placeholder={placeholder || 'Enter value'}
-          onChange={handleSearchValueChange}
-        />
+    <form onSubmit={handleSubmit}>
+      <div className={styles.wrapper}>
+        <div>
+          <TextField
+            name={name}
+            placeholder={placeholder || 'Enter value'}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <Button
+            disabled={loading}
+            text={loading ? 'Searching...' : 'Search'}
+            onClick={handleSearch}
+          />
+        </div>
       </div>
-      <div>
-        <Button
-          disabled={loading}
-          text={loading ? 'Searching...' : 'Search'}
-          onClick={handleSearchClick}
-        />
-      </div>
-    </div>
+    </form>
   );
 };

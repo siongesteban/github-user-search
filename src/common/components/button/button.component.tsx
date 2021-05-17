@@ -25,6 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
+      type="button"
       className={classNames.join(' ')}
       disabled={disabled}
       onClick={onClick}
