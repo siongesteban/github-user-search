@@ -7,10 +7,8 @@ export default {
   component: Button,
   argTypes: {
     size: {
-      control: {
-        type: 'select',
-        options: ['sm', 'md', 'lg'],
-      },
+      type: 'select',
+      options: ['sm', 'md', 'lg'],
     },
   },
 } as Meta;

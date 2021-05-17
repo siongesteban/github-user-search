@@ -19,6 +19,14 @@
   background: var(--color-primary-active);
 }
 
+.sm {
+  height: var(--input-height-sm);
+}
+
 .md {
-  height: 40px;
+  height: var(--input-height-md);
+}
+
+.lg {
+  height: var(--input-height-lg);
 }
