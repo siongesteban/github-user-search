@@ -144,13 +144,18 @@ export const Table = <TRow extends Record<string, any>>({
     return (
       <div className={styles.pagination}>
         <Button
-          disabled={loading}
+          disabled={loading || isFirstPage}
           size="sm"
           text="Prev"
           onClick={handlePrevious}
         />
         <span>{currentPage}</span>
-        <Button disabled={loading} size="sm" text="Next" onClick={handleNext} />
+        <Button
+          disabled={loading || isLastPage}
+          size="sm"
+          text="Next"
+          onClick={handleNext}
+        />
       </div>
     );
   };
