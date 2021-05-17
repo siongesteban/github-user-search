@@ -31,6 +31,15 @@ export const UserTable: React.FC<UserTableProps> = ({
       name: 'username',
       text: 'Login',
       sort: true,
+      render: (row) => (
+        <a
+          href={`https://github.com/${row.username}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {row.username}
+        </a>
+      ),
     },
     {
       name: 'type',

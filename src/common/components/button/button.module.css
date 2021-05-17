@@ -33,7 +33,7 @@
 
 .disabled,
 .disabled:hover {
-  background: #424242;
-  color: #7f7f7f;
+  background: var(--disabled-bg);
+  color: var(--disabled-color);
   cursor: default;
 }
