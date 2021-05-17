@@ -1,0 +1,25 @@
+.wrapper {
+  display: inline-block;
+  text-align: center;
+}
+
+.logo {
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.github {
+  color: var(--color-primary);
+}
+
+.user,
+.slogan {
+  color: var(--text-color-default);
+}
+
+.slogan {
+  font-size: 1.7rem;
+  font-style: italic;
+}
