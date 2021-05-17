@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper > div:not(:first-child) {
+  margin-left: 10px;
+}
+
+.text-field-container {
+  width: 250px;
+}

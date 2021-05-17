@@ -18,6 +18,7 @@ export default {
 const Template: Story<TextFieldProps> = (args) => <TextField {...args} />;
 
 const defaultArgs: TextFieldProps = {
+  name: 'test',
   placeholder: 'Enter some text',
   size: 'md',
 };

@@ -7,8 +7,15 @@ import styles from './button.module.css';
 export type ButtonProps = {
   text: string;
   size?: ComponentSize;
+  onClick?: () => void;
 };
 
-export const Button: React.FC<ButtonProps> = ({ text, size = 'md' }) => (
-  <button className={`${styles.button} ${styles[size]}`}>{text}</button>
+export const Button: React.FC<ButtonProps> = ({
+  text,
+  size = 'md',
+  onClick,
+}) => (
+  <button className={`${styles.button} ${styles[size]}`} onClick={onClick}>
+    {text}
+  </button>
 );
