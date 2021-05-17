@@ -7,7 +7,7 @@
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1px;
-  padding: 10px 30px;
+  padding: 0 30px;
   transition: background 0.1s ease;
 }
 
@@ -17,4 +17,8 @@
 
 .button:active {
   background: var(--color-primary-active);
+}
+
+.md {
+  height: 40px;
 }
