@@ -51,10 +51,20 @@ export const UserSearch: React.FC = () => {
       return;
     }
 
-    const [, lastPageMeta] = response.headers.get('Link')!.split(',');
-    const lastPageUrl = lastPageMeta.split('>')[0].split('').splice(2).join('');
+    const [, lastPageMeta] = response.headers.get('Link')?.split(',') || [];
 
-    const newPageCount = Number(qs.parse(lastPageUrl).page);
+    let newPageCount = 1;
+
+    if (lastPageMeta) {
+      const lastPageUrl = lastPageMeta
+        .split('>')[0]
+        .split('')
+        .splice(2)
+        .join('');
+
+      newPageCount = Number(qs.parse(lastPageUrl).page);
+    }
+
     const newRows = data.items.map((item: any) => ({
       id: item.id,
       username: item.login,
