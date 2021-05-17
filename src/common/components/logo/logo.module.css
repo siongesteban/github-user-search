@@ -14,12 +14,16 @@
   color: var(--color-primary);
 }
 
-.user,
+.search {
+  font-weight: 200;
+}
+
+.search,
 .slogan {
   color: var(--text-color-default);
 }
 
 .slogan {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-style: italic;
 }
