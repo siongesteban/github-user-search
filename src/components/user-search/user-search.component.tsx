@@ -9,6 +9,7 @@ import styles from './user-search.module.css';
 
 export const UserSearch: React.FC = () => {
   const [loading, setLoading] = React.useState(false);
+  const [searching, setSearching] = React.useState(false);
   const [pageSize, setPageSize] = React.useState(9);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [pageCount, setPageCount] = React.useState(0);
@@ -33,7 +34,7 @@ export const UserSearch: React.FC = () => {
 
       setError(data.message);
       setRows([]);
-      setLoading(false);
+      finishLoadStatus();
 
       return;
     }
@@ -46,6 +47,7 @@ export const UserSearch: React.FC = () => {
 
     if (!data.total_count) {
       setRows([]);
+      finishLoadStatus();
       return;
     }
 
@@ -72,10 +74,19 @@ export const UserSearch: React.FC = () => {
 
     setPageCount(newPageCount);
     setRows(newRows);
+    finishLoadStatus();
+  };
+
+  const finishLoadStatus = () => {
     setLoading(false);
+    setSearching(false);
   };
 
   const handleSearch = (value: string) => {
+    if (value !== user) {
+      setSearching(true);
+    }
+
     setUser(value);
   };
 
@@ -89,6 +100,7 @@ export const UserSearch: React.FC = () => {
         <Search
           name="user"
           placeholder="Enter GitHub user..."
+          loading={searching}
           onSearch={handleSearch}
         />
       </div>
