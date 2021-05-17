@@ -7,3 +7,17 @@
 .app > div {
   margin: 20px;
 }
+
+.user-search-container {
+  width: 500px;
+}
+
+@media only screen and (max-width: 560px) {
+  .app {
+    padding: 0 10px;
+  }
+
+  .user-search-container {
+    width: 100%;
+  }
+}

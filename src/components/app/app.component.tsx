@@ -13,7 +13,7 @@ export const App: React.FC = () => (
       <Logo />
     </div>
     <Divider />
-    <div>
+    <div className={styles['user-search-container']}>
       <UserSearch />
     </div>
   </div>
