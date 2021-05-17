@@ -130,6 +130,7 @@ export const UserSearch: React.FC = () => {
             onChange: handlePageSizeChange,
           }}
           pagination={{
+            loading,
             currentPage,
             pageCount,
             onPrevious: handlePageChange,

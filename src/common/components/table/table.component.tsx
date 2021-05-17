@@ -14,6 +14,7 @@ export type TableField<TRow> = {
 };
 
 export type TablePagination = {
+  loading?: boolean;
   currentPage: number;
   pageCount: number;
   onPrevious: (page: number) => void;
@@ -120,7 +121,7 @@ export const Table = <TRow extends Record<string, any>>({
       return null;
     }
 
-    const { currentPage, pageCount, onNext, onPrevious } = pagination;
+    const { loading, currentPage, pageCount, onNext, onPrevious } = pagination;
     const isFirstPage = currentPage === 1;
     const isLastPage = currentPage === pageCount;
 
@@ -142,9 +143,14 @@ export const Table = <TRow extends Record<string, any>>({
 
     return (
       <div className={styles.pagination}>
-        <Button size="sm" text="Prev" onClick={handlePrevious} />
+        <Button
+          disabled={loading}
+          size="sm"
+          text="Prev"
+          onClick={handlePrevious}
+        />
         <span>{currentPage}</span>
-        <Button size="sm" text="Next" onClick={handleNext} />
+        <Button disabled={loading} size="sm" text="Next" onClick={handleNext} />
       </div>
     );
   };
