@@ -1,4 +1,5 @@
 .wrapper {
+  cursor: default;
   display: inline-block;
   text-align: center;
 }
