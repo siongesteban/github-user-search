@@ -1,0 +1,12 @@
+.text-style {
+  color: var(--text-color-default);
+}
+
+.primary {
+  color: var(--color-primary);
+}
+
+
+.error {
+  color: var(--color-error);
+}

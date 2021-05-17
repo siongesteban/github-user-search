@@ -34,8 +34,11 @@ body {
   background: #f6f9fc;
 
   --color-primary: #00d0ff;
+  --color-error: #ef5555;
 
   --border-color-default: #d7d7d7;
+
+  --divider-color: #e6e6e6;
 
   --text-color-default: #474747;
 
@@ -49,8 +52,11 @@ body.dark {
   color: #fff;
 
   --color-primary: #19aecf;
+  --color-error: #e44b4b;
 
   --border-color-default: #3a3a3a;
+
+  --divider-color: #383838;
 
   --text-color-default: #e1e1e1;
 
