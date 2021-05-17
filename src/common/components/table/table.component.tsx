@@ -142,9 +142,9 @@ export const Table = <TRow extends Record<string, any>>({
 
     return (
       <div className={styles.pagination}>
-        <Button size="sm" text="<" onClick={handlePrevious} />
+        <Button size="sm" text="Prev" onClick={handlePrevious} />
         <span>{currentPage}</span>
-        <Button size="sm" text=">" onClick={handleNext} />
+        <Button size="sm" text="Next" onClick={handleNext} />
       </div>
     );
   };
