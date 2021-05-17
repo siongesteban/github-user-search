@@ -1,6 +1,6 @@
 .text-field {
   background: var(--text-field-bg);
-  border: 1px solid var(--text-field-border-color);
+  border: 1px solid var(--border-color-default);
   border-radius: var(--border-radius-sm);
   color: var(--text-color-default);
   outline: none;

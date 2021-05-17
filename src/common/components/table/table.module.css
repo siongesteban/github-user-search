@@ -1,0 +1,27 @@
+.table {
+  border-spacing: 0 8px;
+  color: var(--text-color-default);
+  cursor: default;
+}
+
+.table td {
+  transition: background 0.2s ease;
+}
+
+.table th,
+td {
+  padding: 10px 20px;
+}
+
+.table td {
+  background: var(--surface-color-default);
+  border-bottom: 1px solid var(--border-color-default);
+}
+
+.table td:first-child {
+  border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+}
+
+.table td:last-child {
+  border-radius: 0px var(--border-radius-sm) var(--border-radius-sm) 0;
+}

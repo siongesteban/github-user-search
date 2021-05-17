@@ -27,10 +27,13 @@ body {
 
   --color-primary: #fb5bca;
 
+  --border-color-default: #d7d7d7;
+
   --text-color-default: #474747;
 
+  --surface-color-default: #fff;
+
   --text-field-bg: #fff;
-  --text-field-border-color: #d7d7d7;
 }
 
 body.dark {
@@ -39,8 +42,11 @@ body.dark {
 
   --color-primary: #ff00b1;
 
+  --border-color-default: #4b3c63;
+
   --text-color-default: #e1e1e1;
 
+  --surface-color-default: #34294c;
+
   --text-field-bg: #140b23;
-  --text-field-border-color: #4b3c63;
 }
