@@ -1,0 +1,9 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app > div {
+  margin: 20px;
+}
