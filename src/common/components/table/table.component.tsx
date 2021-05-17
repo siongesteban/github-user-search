@@ -2,20 +2,24 @@ import React from 'react';
 
 import styles from './table.module.css';
 
-export type TableField = {
-  name?: string;
-  text: string;
+export type TableField<TRow> = {
+  name?: keyof TRow;
+  text?: string;
+  render?: (row: TRow) => React.ReactNode;
 };
 
 export type TableProps<TRow = Record<string, any>> = {
-  fields: TableField[];
+  fields: TableField<TRow>[];
   rows: TRow[];
 };
 
-export const Table: React.FC<TableProps> = ({ fields, rows }) => {
+export const Table = <TRow extends Record<string, any>>({
+  fields,
+  rows,
+}: TableProps<TRow>) => {
   const renderHead = () => {
     const items = fields.map(({ name, text }, i) => (
-      <th key={name || i}>{text}</th>
+      <th key={name?.toString() || i}>{text}</th>
     ));
 
     return (
@@ -28,9 +32,11 @@ export const Table: React.FC<TableProps> = ({ fields, rows }) => {
   const renderBody = () => {
     const items = rows.map((row, i) => (
       <tr key={i}>
-        {fields.map(({ name }, i) => (
-          <td key={i}>{name ? row[name] : null}</td>
-        ))}
+        {fields.map(({ name, render }, i) => {
+          const content = render?.(row) || (name ? row[name] : null);
+
+          return <td key={i}>{content}</td>;
+        })}
       </tr>
     ));
 

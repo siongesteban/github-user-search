@@ -9,8 +9,9 @@
 }
 
 .table th,
-td {
+.table td {
   padding: 10px 20px;
+  text-align: left;
 }
 
 .table td {
