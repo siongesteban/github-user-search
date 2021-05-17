@@ -12,6 +12,12 @@
   width: 500px;
 }
 
+.theme-toggler-container {
+  position: absolute;
+  top: -10px;
+  right: -40px;
+}
+
 @media only screen and (max-width: 560px) {
   .app {
     padding: 0 10px;

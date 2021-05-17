@@ -1,0 +1,8 @@
+.theme-toggler {
+  cursor: pointer;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 5px;
+  border-radius: 100%;
+  height: 24px;
+}

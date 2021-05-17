@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from 'common/components/button';
 import { TextStyle } from 'common/components/text-style';
 import { SelectField } from 'common/components/select-field';
-import { SortAscending, SortDescending } from 'common/icons';
+import { SortAscendingIcon, SortDescendingIcon } from 'common/icons';
 
 import styles from './table.module.css';
 
@@ -92,9 +92,9 @@ export const Table = <TRow extends Record<string, any>>({
             {text}
             {currentSort?.[0] === name &&
               (currentSort?.[1] === 'asc' ? (
-                <SortAscending className={styles['sort-icon']} />
+                <SortAscendingIcon className={styles['sort-icon']} />
               ) : (
-                <SortDescending className={styles['sort-icon']} />
+                <SortDescendingIcon className={styles['sort-icon']} />
               ))}
           </th>
         );
