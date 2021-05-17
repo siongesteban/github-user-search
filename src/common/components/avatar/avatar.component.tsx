@@ -18,5 +18,5 @@ export const Avatar: React.FC<AvatarProps> = ({ name, src }) => {
     return <div className={styles.avatar}>{initials}</div>;
   }
 
-  return <img className={styles.avatar} src={src} alt={name} />;
+  return <img className={styles.avatar} src={src} alt={name} title={name} />;
 };
