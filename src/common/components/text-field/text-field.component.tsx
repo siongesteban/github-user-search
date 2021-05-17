@@ -2,8 +2,6 @@ import React from 'react';
 
 import { ComponentSize } from 'common/types';
 
-import styles from './text-field.module.css';
-
 export type TextFieldProps = {
   name: string;
   placeholder?: string;
@@ -23,7 +21,7 @@ export const TextField: React.FC<TextFieldProps> = ({
 
   return (
     <input
-      className={`${styles['text-field']} ${styles[size]}`}
+      className={`input ${size}`}
       placeholder={placeholder}
       onChange={handleChange}
     />

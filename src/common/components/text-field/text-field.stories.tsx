@@ -3,14 +3,12 @@ import { Story, Meta } from '@storybook/react';
 import { TextField, TextFieldProps } from './text-field.component';
 
 export default {
-  title: 'Common/Text Field',
+  title: 'Common/Input/Text Field',
   component: TextField,
   argTypes: {
     size: {
-      control: {
-        type: 'select',
-        options: ['sm', 'md', 'lg'],
-      },
+      type: 'select',
+      options: ['sm', 'md', 'lg'],
     },
   },
 } as Meta;
