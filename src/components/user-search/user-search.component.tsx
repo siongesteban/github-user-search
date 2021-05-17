@@ -77,6 +77,7 @@ export const UserSearch: React.FC = () => {
       setSearching(true);
     }
 
+    setCurrentPage(1);
     setUser(value);
   };
 
