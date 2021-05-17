@@ -6,6 +6,14 @@
   --color-primary-active: #2ea2bd;
 
   --border-radius-sm: 5px;
+
+  --input-height-sm: 30px;
+  --input-height-md: 40px;
+  --input-height-lg: 50px;
+
+  --input-size-sm: 0.8rem;
+  --input-size-md: 1rem;
+  --input-size-lg: 1.2rem;
 }
 
 * {
@@ -49,4 +57,34 @@ body.dark {
   --surface-color-default: #282828;
 
   --text-field-bg: #101010;
+}
+
+.input {
+  background: var(--text-field-bg);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color-default);
+  color: var(--text-color-default);
+  outline: none;
+  padding: 0 10px;
+  transition: border 0.2s ease;
+}
+
+.input:hover,
+.input:focus {
+  border: 1px solid var(--color-primary);
+}
+
+.input.sm {
+  font-size: var(--input-size-sm);
+  height: var(--input-height-sm);
+}
+
+.input.md {
+  font-size: var(--input-size-md);
+  height: var(--input-height-md);
+}
+
+.input.lg {
+  font-size: var(--input-size-lg);
+  height: var(--input-height-lg);
 }
