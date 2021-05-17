@@ -30,11 +30,13 @@ export const UserTable: React.FC<UserTableProps> = ({
     {
       name: 'username',
       text: 'Login',
+      sort: true,
     },
     {
       name: 'type',
       text: 'Type',
       alignment: 'center',
+      sort: true,
       render: (row) => <UserTypeIcon type={row.type} />,
     },
   ];
@@ -45,6 +47,7 @@ export const UserTable: React.FC<UserTableProps> = ({
       emptyMessage={loading ? 'Loading...' : 'No users found.'}
       fields={fields}
       rows={rows}
+      sort={['username', 'asc']}
       {...restProps}
     />
   );

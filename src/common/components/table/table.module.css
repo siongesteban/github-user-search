@@ -44,6 +44,20 @@
   text-align: right;
 }
 
+.table th.sort {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.table th.sort:hover {
+  color: var(--color-primary);
+}
+
+.sort-icon {
+  width: 11px;
+  margin-left: 5px;
+}
+
 .controls {
   margin-top: 10px;
   display: flex;

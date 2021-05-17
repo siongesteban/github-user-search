@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from 'common/components/button';
 import { TextStyle } from 'common/components/text-style';
 import { SelectField } from 'common/components/select-field';
+import { SortAscending, SortDescending } from 'common/icons';
 
 import styles from './table.module.css';
 
@@ -10,6 +11,7 @@ export type TableField<TRow> = {
   name?: keyof TRow;
   text?: string;
   alignment?: 'left' | 'center' | 'right';
+  sort?: boolean;
   render?: (row: TRow) => React.ReactNode;
 };
 
@@ -34,6 +36,7 @@ export type TableProps<TRow = Record<string, any>> = {
   rows: TRow[];
   pagination?: TablePagination;
   pageSize?: TablePageSize;
+  sort?: [keyof TRow, 'asc' | 'desc'];
 };
 
 export const Table = <TRow extends Record<string, any>>({
@@ -43,17 +46,60 @@ export const Table = <TRow extends Record<string, any>>({
   rows,
   pagination,
   pageSize,
+  sort,
 }: TableProps<TRow>) => {
-  const renderHead = () => {
-    const items = fields.map(({ name, text, alignment = 'left' }, i) => {
-      const className = styles[`align-${alignment}`];
+  const [currentSort, setCurrentSort] = React.useState(sort);
+  const [sortField, sortOrder] = currentSort || [];
 
-      return (
-        <th key={name?.toString() || i} className={className}>
-          {text}
-        </th>
-      );
-    });
+  const sortedRows =
+    !sortField || !sortOrder
+      ? rows
+      : rows.sort((rowA, rowB) => {
+          if (rowA[sortField] < rowB[sortField]) {
+            return sortOrder === 'asc' ? -1 : 1;
+          }
+
+          if (rowA[sortField] > rowB[sortField]) {
+            return sortOrder === 'asc' ? 1 : -1;
+          }
+
+          return 0;
+        });
+
+  const renderHead = () => {
+    const items = fields.map(
+      ({ name, text, sort: sortColumn, alignment = 'left' }, i) => {
+        const classNames = [styles[`align-${alignment}`]];
+
+        if (sortColumn) {
+          classNames.push(styles.sort);
+        }
+
+        const handleClick = () => {
+          if (!sortColumn || !name) {
+            return;
+          }
+
+          setCurrentSort([name, currentSort?.[1] === 'asc' ? 'desc' : 'asc']);
+        };
+
+        return (
+          <th
+            key={name?.toString() || i}
+            className={classNames.join(' ')}
+            onClick={handleClick}
+          >
+            {text}
+            {currentSort?.[0] === name &&
+              (currentSort?.[1] === 'asc' ? (
+                <SortAscending className={styles['sort-icon']} />
+              ) : (
+                <SortDescending className={styles['sort-icon']} />
+              ))}
+          </th>
+        );
+      }
+    );
 
     return (
       <thead>
@@ -63,7 +109,7 @@ export const Table = <TRow extends Record<string, any>>({
   };
 
   const renderBody = () => {
-    const items = rows.map((row, i) => (
+    const items = sortedRows.map((row, i) => (
       <tr key={i}>
         {fields.map(({ name, render, alignment = 'left' }, i) => {
           const className = styles[`align-${alignment}`];

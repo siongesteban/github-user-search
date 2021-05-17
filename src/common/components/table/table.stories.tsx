@@ -38,7 +38,7 @@ const defaultArgs: TableProps = {
     {
       id: 3,
       name: 'Angular',
-      creator: 'Facebook',
+      creator: 'Google',
     },
   ],
 };

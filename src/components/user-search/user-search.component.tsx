@@ -55,22 +55,12 @@ export const UserSearch: React.FC = () => {
     const lastPageUrl = lastPageMeta.split('>')[0].split('').splice(2).join('');
 
     const newPageCount = Number(qs.parse(lastPageUrl).page);
-    const newRows = (data.items.map((item: any) => ({
+    const newRows = data.items.map((item: any) => ({
       id: item.id,
       username: item.login,
       avatarUrl: item.avatar_url,
       type: item.type,
-    })) as UserTableRow[]).sort((userA, userB) => {
-      if (userA.username < userB.username) {
-        return -1;
-      }
-
-      if (userA.username > userB.username) {
-        return 1;
-      }
-
-      return 0;
-    });
+    })) as UserTableRow[];
 
     setPageCount(newPageCount);
     setRows(newRows);
