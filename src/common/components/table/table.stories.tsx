@@ -47,3 +47,35 @@ export const Default = Template.bind({});
 Default.args = {
   ...defaultArgs,
 };
+
+export const PageSize = Template.bind({});
+PageSize.args = {
+  ...defaultArgs,
+  pageSize: {
+    currentSize: 10,
+    sizes: [10, 20, 30],
+    onChange: () => {},
+  },
+};
+
+export const Pagination = Template.bind({});
+Pagination.args = {
+  ...defaultArgs,
+  pageSize: {
+    currentSize: 10,
+    sizes: [10, 20, 30],
+    onChange: () => {},
+  },
+  pagination: {
+    currentPage: 1,
+    pageCount: 2,
+    onNext: () => {},
+    onPrevious: () => {},
+  },
+};
+
+export const Empty = Template.bind({});
+Empty.args = {
+  ...defaultArgs,
+  rows: [],
+};
